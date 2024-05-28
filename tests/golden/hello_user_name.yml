@@ -331,17 +331,17 @@ out_stdout: |
   Error during simulation: Stack underflow
 out_log: |
   DEBUG    root:machine.py:38 output: '' << '\n'
-  DEBUG    root:machine.py:158 TICK:   4 PC:   1 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 768
-  DEBUG    root:machine.py:158 TICK:   5 PC:   2 LOOP_COUNTER:   0 TOP OF STACK:     768 SP:   1 	LOAD arg: None
-  DEBUG    root:machine.py:158 TICK:   7 PC:   3 LOOP_COUNTER:   0 TOP OF STACK:      25 SP:   1 	PUSH arg: 1
-  DEBUG    root:machine.py:158 TICK:   8 PC:   4 LOOP_COUNTER:   0 TOP OF STACK:       1 SP:   2 	LOOP_START arg: None
-  DEBUG    root:machine.py:158 TICK:  12 PC:   5 LOOP_COUNTER:   1 TOP OF STACK: Empty   SP:   0 	PUSH arg: 768
-  DEBUG    root:machine.py:158 TICK:  13 PC:   6 LOOP_COUNTER:   1 TOP OF STACK:     768 SP:   1 	PUSH arg: i
-  DEBUG    root:machine.py:158 TICK:  14 PC:   7 LOOP_COUNTER:   1 TOP OF STACK:       1 SP:   2 	ADD arg: None
-  DEBUG    root:machine.py:158 TICK:  16 PC:   8 LOOP_COUNTER:   1 TOP OF STACK:     769 SP:   1 	LOAD arg: None
-  DEBUG    root:machine.py:158 TICK:  18 PC:   9 LOOP_COUNTER:   1 TOP OF STACK:      72 SP:   1 	PUSH arg: 257
-  DEBUG    root:machine.py:158 TICK:  19 PC:  10 LOOP_COUNTER:   1 TOP OF STACK:     257 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK:   4 PC:   1 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 768
+  DEBUG    root:machine.py:168 TICK:   5 PC:   2 LOOP_COUNTER:   0 TOP OF STACK:     768 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK:   7 PC:   3 LOOP_COUNTER:   0 TOP OF STACK:      25 SP:   1 	PUSH arg: 1
+  DEBUG    root:machine.py:168 TICK:   8 PC:   4 LOOP_COUNTER:   0 TOP OF STACK:       1 SP:   2 	LOOP_START arg: None
+  DEBUG    root:machine.py:168 TICK:  12 PC:   5 LOOP_COUNTER:   1 TOP OF STACK: Empty   SP:   0 	PUSH arg: 768
+  DEBUG    root:machine.py:168 TICK:  13 PC:   6 LOOP_COUNTER:   1 TOP OF STACK:     768 SP:   1 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK:  14 PC:   7 LOOP_COUNTER:   1 TOP OF STACK:       1 SP:   2 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK:  16 PC:   8 LOOP_COUNTER:   1 TOP OF STACK:     769 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK:  18 PC:   9 LOOP_COUNTER:   1 TOP OF STACK:      72 SP:   1 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK:  19 PC:  10 LOOP_COUNTER:   1 TOP OF STACK:     257 SP:   2 	SAVE arg: None
   DEBUG    root:machine.py:38 output: '\n' << 'H'
-  DEBUG    root:machine.py:158 TICK:  21 PC:  11 LOOP_COUNTER:   1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 5
-  DEBUG    root:machine.py:158 TICK:  23 PC:   6 LOOP_COUNTER:   2 TOP OF STACK: Empty   SP:   0 	PUSH arg: i
-  DEBUG    root:machine.py:158 TICK:  24 PC:   7 LOOP_COUNTER:   2 TOP OF STACK:       2 SP:   1 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK:  21 PC:  11 LOOP_COUNTER:   1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 5
+  DEBUG    root:machine.py:168 TICK:  23 PC:   6 LOOP_COUNTER:   2 TOP OF STACK: Empty   SP:   0 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK:  24 PC:   7 LOOP_COUNTER:   2 TOP OF STACK:       2 SP:   1 	ADD arg: None
