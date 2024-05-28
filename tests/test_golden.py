@@ -7,28 +7,59 @@ import tempfile
 import sys
 import pytest
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import source.machine as machine
 import source.translator as translator
 
 
 def parse_translator_args(args):
-    parser = argparse.ArgumentParser(description="Translate FORTH code to machine code.")
-    parser.add_argument('source_file', help="The FORTH source file to translate.")
-    parser.add_argument('-a', '--all', action='store_true', help="Process all FORTH files in the specified directory.")
-    parser.add_argument('-i', '--input_folder', default='./progs', help="Directory containing FORTH files.")
-    parser.add_argument('-o', '--output_folder', default='./source/machine_code',
-                        help="Directory to store the output JSON files.")
+    parser = argparse.ArgumentParser(
+        description="Translate FORTH code to machine code."
+    )
+    parser.add_argument("source_file", help="The FORTH source file to translate.")
+    parser.add_argument(
+        "-a",
+        "--all",
+        action="store_true",
+        help="Process all FORTH files in the specified directory.",
+    )
+    parser.add_argument(
+        "-i",
+        "--input_folder",
+        default="./progs",
+        help="Directory containing FORTH files.",
+    )
+    parser.add_argument(
+        "-o",
+        "--output_folder",
+        default="./source/machine_code",
+        help="Directory to store the output JSON files.",
+    )
     return parser.parse_args(args)
 
 
 def parse_machine_args(args):
     parser = argparse.ArgumentParser(description="Run FORTH machine code simulations.")
-    parser.add_argument("-a", "--all", action="store_true",
-                        help="Process all JSON files in the machine code directory.")
-    parser.add_argument("input_file", type=str, nargs='?', default=None, help="Path to the input file for the machine.")
-    parser.add_argument("machine_code_file", type=str, nargs='?', help="Path to a specific machine code file to run.")
+    parser.add_argument(
+        "-a",
+        "--all",
+        action="store_true",
+        help="Process all JSON files in the machine code directory.",
+    )
+    parser.add_argument(
+        "input_file",
+        type=str,
+        nargs="?",
+        default=None,
+        help="Path to the input file for the machine.",
+    )
+    parser.add_argument(
+        "machine_code_file",
+        type=str,
+        nargs="?",
+        help="Path to a specific machine code file to run.",
+    )
     return parser.parse_args(args)
 
 
@@ -49,11 +80,15 @@ def test_translator_and_machine(golden, caplog):
             translator_args = parse_translator_args([source, "-o", tmpdirname])
             translator.main(translator_args)
             print("============================================================")
-            target_path = os.path.join(tmpdirname, os.path.basename(source).replace('.forth', '.json'))
+            target_path = os.path.join(
+                tmpdirname, os.path.basename(source).replace(".forth", ".json")
+            )
             machine_args = parse_machine_args([input_stream, target_path])
             machine.main(machine_args)
 
-        target_path = os.path.join(tmpdirname, os.path.basename(source).replace('.forth', '.json'))
+        target_path = os.path.join(
+            tmpdirname, os.path.basename(source).replace(".forth", ".json")
+        )
         with open(target_path, encoding="utf-8") as file:
             code = file.read()
 

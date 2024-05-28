@@ -4,6 +4,7 @@ from enum import Enum
 
 class Opcode(str, Enum):
     """Операции"""
+
     CR = "CR"  # Перевод строки
     DUP = "DUP"  # Продублировать верхний элемент стека
     JZ = "JZ"  # Условный переход, если на вершине стека ноль (jump if zero)

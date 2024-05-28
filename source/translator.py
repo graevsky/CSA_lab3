@@ -2,7 +2,7 @@ import argparse
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from source.isa import Opcode, write_code, IOAddresses
 
 
@@ -26,11 +26,11 @@ def first_pass(lines):
         i = 0
         while i < len(commands):
             command = commands[i]
-            if command == ':':
+            if command == ":":
                 current_proc = commands[i + 1]
                 procedures[current_proc] = []
                 i += 2
-            elif command == ';':
+            elif command == ";":
                 current_proc = None
                 i += 1
             elif current_proc:
@@ -72,15 +72,17 @@ def preprocess_commands(commands):
                 string_literal = string_literal[:-1]
             else:
                 while i + 1 < len(commands) and not commands[i + 1].endswith('"'):
-                    string_literal += ' ' + commands[i + 1]
+                    string_literal += " " + commands[i + 1]
                     i += 1
                 if i + 1 < len(commands) and commands[i + 1].endswith('"'):
-                    string_literal += ' ' + commands[i + 1][:-1]
+                    string_literal += " " + commands[i + 1][:-1]
                     i += 1
 
             string_length = len(string_literal)
-            strings[string_address] = [string_length] + [ord(char) for char in string_literal]
-            preprocessed.append(f'PSTR {string_address}')
+            strings[string_address] = [string_length] + [
+                ord(char) for char in string_literal
+            ]
+            preprocessed.append(f"PSTR {string_address}")
             string_address += string_length + 1
         else:
             preprocessed.append(command)
@@ -157,26 +159,21 @@ def second_pass(commands, strings):
 
             loop_start_index = loop_stack.pop()
             code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.LOOP_END,
-                    "arg": loop_start_index
-                }
+                {"index": index, "opcode": Opcode.LOOP_END, "arg": loop_start_index}
             )
             index += 1
             i += 1
             continue
         elif command == "if":
             if_stack.append(index)
-            code.append(
-                {"index": index, "opcode": Opcode.JZ, "arg": None})
+            code.append({"index": index, "opcode": Opcode.JZ, "arg": None})
             index += 1
         elif command == "then":
             if not if_stack:
                 raise ValueError("Mismatched 'then' without 'if'")
             if_index = if_stack.pop()
-            code[if_index]['arg'] = index
-        elif command.startswith('PSTR'):
+            code[if_index]["arg"] = index
+        elif command.startswith("PSTR"):
             address = int(command.split()[1])
 
             index += 1
@@ -218,133 +215,51 @@ def second_pass(commands, strings):
                 {
                     "index": index,
                     "opcode": Opcode.PUSH,
-                    "arg": address + IOAddresses.STRING_STORAGE
+                    "arg": address + IOAddresses.STRING_STORAGE,
                 }
             )
             index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.PUSH,
-                    "arg": "i"
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.PUSH, "arg": "i"})
+            index += 1
+            code.append({"index": index, "opcode": Opcode.ADD, "arg": None})
+            index += 1
+            code.append({"index": index, "opcode": Opcode.LOAD, "arg": None})
             index += 1
             code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.ADD,
-                    "arg": None
-                }
+                {"index": index, "opcode": Opcode.PUSH, "arg": IOAddresses.OUT_ADDR}
             )
             index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.LOAD,
-                    "arg": None
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.SAVE, "arg": None})
             index += 1
             code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.PUSH,
-                    "arg": IOAddresses.OUT_ADDR
-                }
-            )
-            index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.SAVE,
-                    "arg": None
-                }
-            )
-            index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.LOOP_END,
-                    "arg": loop_start_index
-                }
+                {"index": index, "opcode": Opcode.LOOP_END, "arg": loop_start_index}
             )
             index += 1
         elif command == "inp":
             code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.PUSH,
-                    "arg": IOAddresses.INP_ADDR
-                }
+                {"index": index, "opcode": Opcode.PUSH, "arg": IOAddresses.INP_ADDR}
             )
             index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.LOAD,
-                    "arg": None
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.LOAD, "arg": None})
             index += 1
         elif command == "out":
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.DUP,
-                    "arg": None
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.DUP, "arg": None})
             index += 1
             code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.PUSH,
-                    "arg": IOAddresses.OUT_ADDR
-                }
+                {"index": index, "opcode": Opcode.PUSH, "arg": IOAddresses.OUT_ADDR}
             )
             index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.SAVE,
-                    "arg": None
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.SAVE, "arg": None})
             index += 1
         elif command == "store":
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.PUSH,
-                    "arg": "in_pointer"
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.PUSH, "arg": "in_pointer"})
             index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.SAVE,
-                    "arg": None
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.SAVE, "arg": None})
             index += 1
         elif command == "load":
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.PUSH,
-                    "arg": "out_pointer"
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.PUSH, "arg": "out_pointer"})
             index += 1
-            code.append(
-                {
-                    "index": index,
-                    "opcode": Opcode.LOAD,
-                    "arg": None
-                }
-            )
+            code.append({"index": index, "opcode": Opcode.LOAD, "arg": None})
             index += 1
         elif command in command_to_opcode:
             opcode = command_to_opcode[command]
@@ -376,7 +291,9 @@ def translate(text):
     preprocessed_commands, strings = preprocess_commands(expanded_program)
     code = second_pass(preprocessed_commands, strings)
 
-    print(f"source LoC: {loc} code instr: {len(code)}")  # Output LOC and number of instructions
+    print(
+        f"source LoC: {loc} code instr: {len(code)}"
+    )  # Output LOC and number of instructions
 
     return {"data": strings, "program": code}
 
@@ -384,10 +301,14 @@ def translate(text):
 def process_dir(directory, output_folder):
     for root, dirs, files in os.walk(directory):
         for file in files:
-            if file.endswith('.forth'):
+            if file.endswith(".forth"):
                 source_path = os.path.join(root, file)
-                machine_code = translate(open(source_path, "r", encoding="utf-8").read())
-                output_file = os.path.join(output_folder, file.replace('.forth', '.json'))
+                machine_code = translate(
+                    open(source_path, "r", encoding="utf-8").read()
+                )
+                output_file = os.path.join(
+                    output_folder, file.replace(".forth", ".json")
+                )
                 write_code(output_file, machine_code)
                 print(f"Machine code has been written to {output_file}")
 
@@ -404,20 +325,39 @@ def main(arguments):
             output_dir = arguments.output_folder
             if not os.path.exists(output_dir):
                 os.makedirs(output_dir)
-            output_file = os.path.join(output_dir, os.path.basename(source_file).replace('.forth', '.json'))
+            output_file = os.path.join(
+                output_dir, os.path.basename(source_file).replace(".forth", ".json")
+            )
             write_code(output_file, machine_code)
     except Exception as e:
         print(f"Error in translator: {e}")
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Translate FORTH code to machine code.")
-    parser.add_argument('source_file', nargs='?', help="The FORTH source file to translate.")
-    parser.add_argument('-a', '--all', action='store_true', help="Process all FORTH files in the specified directory.")
-    parser.add_argument('-i', '--input_folder', default='./progs',
-                        help="Directory containing FORTH files.")
-    parser.add_argument('-o', '--output_folder', default='./source/machine_code',
-                        help="Directory to store the output JSON files.")
+    parser = argparse.ArgumentParser(
+        description="Translate FORTH code to machine code."
+    )
+    parser.add_argument(
+        "source_file", nargs="?", help="The FORTH source file to translate."
+    )
+    parser.add_argument(
+        "-a",
+        "--all",
+        action="store_true",
+        help="Process all FORTH files in the specified directory.",
+    )
+    parser.add_argument(
+        "-i",
+        "--input_folder",
+        default="./progs",
+        help="Directory containing FORTH files.",
+    )
+    parser.add_argument(
+        "-o",
+        "--output_folder",
+        default="./source/machine_code",
+        help="Directory to store the output JSON files.",
+    )
     return parser.parse_args()
 
 

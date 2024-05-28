@@ -4,7 +4,7 @@ import sys
 import logging
 from io import StringIO
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from source.isa import read_code, IOAddresses
 from source.ALU import ALU
@@ -35,7 +35,9 @@ class DataPath:
         """Вывод IO"""
         if tochar:
             value = chr(value)
-        logging.debug("output: %s << %s", repr("".join(self.output_buffer)), repr(value))
+        logging.debug(
+            "output: %s << %s", repr("".join(self.output_buffer)), repr(value)
+        )
         self.output_buffer.append(str(value))
 
     """Помещает значение в стек и увеличивает счетчик стека на 1"""
@@ -56,7 +58,9 @@ class DataPath:
 
     def load(self):
         addr = self.pop_from_stack()  # Адрес для загрузки берется из стека
-        if addr == IOAddresses.INP_ADDR:  # Если это адрес ввода, то значение в стек попадает из input buffer
+        if (
+            addr == IOAddresses.INP_ADDR
+        ):  # Если это адрес ввода, то значение в стек попадает из input buffer
             if self.input_buffer:
                 symbol = self.input_buffer.pop(0)
                 symbol_code = 0
@@ -76,7 +80,9 @@ class DataPath:
     def save(self, tochar=True):
         addr = self.pop_from_stack()  # Адрес для сохранения берется из стека
         val = self.pop_from_stack()  # Значение для сохранения берется из стека
-        if addr == IOAddresses.OUT_ADDR:  # Если это адрес вывода, то значение из стека помещается в output buffer
+        if (
+            addr == IOAddresses.OUT_ADDR
+        ):  # Если это адрес вывода, то значение из стека помещается в output buffer
             self.write_io(val, tochar)
         else:  # Если это просто адрес из памяти, то по этому адресу записывается значение
             self.memory[addr] = val
@@ -92,8 +98,12 @@ class ControlUnit:
         self.tick_counter = 0  # Счетчик тиков (модельного времени)
         self.instr_latch = 0  # Регистр хранения инструкции
         self.decoder = InstructionDecoder(self)  # Декодер инструкций
-        self.mem_inp_pointer = IOAddresses.INPUT_STORAGE  # Указатель для сохранения символов в память ввода
-        self.mem_out_pointer = IOAddresses.INPUT_STORAGE  # Указатель для загрузки символов из памяти вывода
+        self.mem_inp_pointer = (
+            IOAddresses.INPUT_STORAGE
+        )  # Указатель для сохранения символов в память ввода
+        self.mem_out_pointer = (
+            IOAddresses.INPUT_STORAGE
+        )  # Указатель для загрузки символов из памяти вывода
 
         """Инициализация регистра и return stack для управления циклами"""
         self.loop_counter = 0
@@ -161,18 +171,20 @@ class ControlUnit:
         return "".join(self.data_path.output_buffer)
 
     def __repr__(self):
-        top_of_stack = self.data_path.stack[-1] if self.data_path.stack else 'Empty'
-        state_repr = "TICK: {:3} PC: {:3} LOOP_COUNTER: {:3} TOP OF STACK: {:7} SP: {:3}".format(
-            self.tick_counter,
-            self.pc,
-            self.loop_counter,
-            top_of_stack,
-            self.data_path.stack_pointer
+        top_of_stack = self.data_path.stack[-1] if self.data_path.stack else "Empty"
+        state_repr = (
+            "TICK: {:3} PC: {:3} LOOP_COUNTER: {:3} TOP OF STACK: {:7} SP: {:3}".format(
+                self.tick_counter,
+                self.pc,
+                self.loop_counter,
+                top_of_stack,
+                self.data_path.stack_pointer,
+            )
         )
 
         instr = self.memory[self.pc]
         if isinstance(instr, dict):
-            opcode = instr['opcode']
+            opcode = instr["opcode"]
             instr_repr = str(opcode)
 
             if "arg" in instr:
@@ -208,7 +220,7 @@ def simulation(program, input_data, data_segment):
 
 def run_all_programs(directory, input_file):
     for file in os.listdir(directory):
-        if file.endswith('.json'):
+        if file.endswith(".json"):
             code_file = os.path.join(directory, file)
             print(f"Processing {code_file}")
             print()
@@ -221,7 +233,7 @@ def main(argums):
             if argums.input_file is None:
                 print("Please specify an input file.")
             else:
-                machine_code_dir = './source/machine_code'
+                machine_code_dir = "./source/machine_code"
                 run_all_programs(machine_code_dir, argums.input_file)
         elif argums.machine_code_file and argums.input_file:
             run_simulation(argums.machine_code_file, argums.input_file)
@@ -239,19 +251,34 @@ def run_simulation(machine_code_file, input_file):
         with open(input_file, "r", encoding="utf-8") as file:
             input_data = file.read()
         output, instr_count, ticks, logs = simulation(program, input_data, data_segment)
-        print(logs, end='')
+        print(logs, end="")
         print("".join(output))
-        print(f"instr_counter: {instr_count} ticks: {ticks}", end='')
+        print(f"instr_counter: {instr_count} ticks: {ticks}", end="")
     except Exception as e:
         print(f"Error during simulation: {e}")
 
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Run FORTH machine code simulations.")
-    parser.add_argument("-a", "--all", action="store_true",
-                        help="Process all JSON files in the machine code directory.")
-    parser.add_argument("input_file", type=str, nargs='?', default=None, help="Path to the input file for the machine.")
-    parser.add_argument("machine_code_file", type=str, nargs='?', help="Path to a specific machine code file to run.")
+    parser.add_argument(
+        "-a",
+        "--all",
+        action="store_true",
+        help="Process all JSON files in the machine code directory.",
+    )
+    parser.add_argument(
+        "input_file",
+        type=str,
+        nargs="?",
+        default=None,
+        help="Path to the input file for the machine.",
+    )
+    parser.add_argument(
+        "machine_code_file",
+        type=str,
+        nargs="?",
+        help="Path to a specific machine code file to run.",
+    )
     return parser.parse_args()
 
 
