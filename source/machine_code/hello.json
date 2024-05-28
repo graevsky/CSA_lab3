@@ -1,0 +1,81 @@
+{
+    "data": {
+        "0": [
+            12,
+            72,
+            101,
+            108,
+            108,
+            111,
+            32,
+            119,
+            111,
+            114,
+            108,
+            100,
+            33
+        ]
+    },
+    "program": [
+        {
+            "index": 0,
+            "opcode": "PUSH",
+            "arg": 768
+        },
+        {
+            "index": 1,
+            "opcode": "LOAD",
+            "arg": null
+        },
+        {
+            "index": 2,
+            "opcode": "PUSH",
+            "arg": 1
+        },
+        {
+            "index": 3,
+            "opcode": "LOOP_START",
+            "arg": null
+        },
+        {
+            "index": 4,
+            "opcode": "PUSH",
+            "arg": 768
+        },
+        {
+            "index": 5,
+            "opcode": "PUSH",
+            "arg": "i"
+        },
+        {
+            "index": 6,
+            "opcode": "ADD",
+            "arg": null
+        },
+        {
+            "index": 7,
+            "opcode": "LOAD",
+            "arg": null
+        },
+        {
+            "index": 8,
+            "opcode": "PUSH",
+            "arg": 257
+        },
+        {
+            "index": 9,
+            "opcode": "SAVE",
+            "arg": null
+        },
+        {
+            "index": 10,
+            "opcode": "LOOP_END",
+            "arg": 4
+        },
+        {
+            "index": 11,
+            "opcode": "HALT",
+            "arg": null
+        }
+    ]
+}

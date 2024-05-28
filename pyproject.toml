@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "lab3"
+version = "0.1.0"
+description = ""
+authors = ["graevsky <graevsky@bk.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pytest = "^8.2.1"
+pytest-golden = "^0.2.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+coverage = "^7.4.4"
+ruff = "^0.3.7"
+pytest-golden = "^0.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

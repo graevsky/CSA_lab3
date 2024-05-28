@@ -1,0 +1,110 @@
+{
+    "data": {},
+    "program": [
+        {
+            "index": 0,
+            "opcode": "PUSH",
+            "arg": 0
+        },
+        {
+            "index": 1,
+            "opcode": "PUSH",
+            "arg": 999
+        },
+        {
+            "index": 2,
+            "opcode": "PUSH",
+            "arg": 0
+        },
+        {
+            "index": 3,
+            "opcode": "LOOP_START",
+            "arg": null
+        },
+        {
+            "index": 4,
+            "opcode": "PUSH",
+            "arg": "i"
+        },
+        {
+            "index": 5,
+            "opcode": "PUSH",
+            "arg": 3
+        },
+        {
+            "index": 6,
+            "opcode": "MOD",
+            "arg": null
+        },
+        {
+            "index": 7,
+            "opcode": "PUSH",
+            "arg": 0
+        },
+        {
+            "index": 8,
+            "opcode": "EQUALS",
+            "arg": null
+        },
+        {
+            "index": 9,
+            "opcode": "PUSH",
+            "arg": "i"
+        },
+        {
+            "index": 10,
+            "opcode": "PUSH",
+            "arg": 5
+        },
+        {
+            "index": 11,
+            "opcode": "MOD",
+            "arg": null
+        },
+        {
+            "index": 12,
+            "opcode": "PUSH",
+            "arg": 0
+        },
+        {
+            "index": 13,
+            "opcode": "EQUALS",
+            "arg": null
+        },
+        {
+            "index": 14,
+            "opcode": "OR",
+            "arg": null
+        },
+        {
+            "index": 15,
+            "opcode": "JZ",
+            "arg": 18
+        },
+        {
+            "index": 16,
+            "opcode": "PUSH",
+            "arg": "i"
+        },
+        {
+            "index": 17,
+            "opcode": "ADD",
+            "arg": null
+        },
+        {
+            "index": 18,
+            "opcode": "LOOP_END",
+            "arg": 3
+        },
+        {
+            "index": 19,
+            "opcode": "PRINT_TOP",
+            "arg": null
+        },
+        {
+            "index": 20,
+            "opcode": "HALT",
+            "arg": null
+        }
+    ]
+}

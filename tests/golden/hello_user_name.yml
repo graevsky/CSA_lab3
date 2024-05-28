@@ -1,0 +1,347 @@
+in_source: |-
+  : read_input
+      1 0 do
+          inp
+          dup
+          if
+              dec_i
+              store
+          then
+      loop
+  ;
+
+  : print_output
+      1 0 do
+          load
+          dup
+          if
+              dec_i
+              out
+          then
+      loop
+  ;
+
+
+  : greet
+      cr
+      ."Hello, what is your name?"
+      cr
+      read_input
+      cr
+      ."Hello, "
+      print_output
+  ;
+
+  greet
+in_stdin: |-
+  Username
+out_code: |-
+  {
+      "data": {
+          "0": [
+              25,
+              72,
+              101,
+              108,
+              108,
+              111,
+              44,
+              32,
+              119,
+              104,
+              97,
+              116,
+              32,
+              105,
+              115,
+              32,
+              121,
+              111,
+              117,
+              114,
+              32,
+              110,
+              97,
+              109,
+              101,
+              63
+          ],
+          "26": [
+              7,
+              72,
+              101,
+              108,
+              108,
+              111,
+              44,
+              32
+          ]
+      },
+      "program": [
+          {
+              "index": 0,
+              "opcode": "CR",
+              "arg": null
+          },
+          {
+              "index": 1,
+              "opcode": "PUSH",
+              "arg": 768
+          },
+          {
+              "index": 2,
+              "opcode": "LOAD",
+              "arg": null
+          },
+          {
+              "index": 3,
+              "opcode": "PUSH",
+              "arg": 1
+          },
+          {
+              "index": 4,
+              "opcode": "LOOP_START",
+              "arg": null
+          },
+          {
+              "index": 5,
+              "opcode": "PUSH",
+              "arg": 768
+          },
+          {
+              "index": 6,
+              "opcode": "PUSH",
+              "arg": "i"
+          },
+          {
+              "index": 7,
+              "opcode": "ADD",
+              "arg": null
+          },
+          {
+              "index": 8,
+              "opcode": "LOAD",
+              "arg": null
+          },
+          {
+              "index": 9,
+              "opcode": "PUSH",
+              "arg": 257
+          },
+          {
+              "index": 10,
+              "opcode": "SAVE",
+              "arg": null
+          },
+          {
+              "index": 11,
+              "opcode": "LOOP_END",
+              "arg": 5
+          },
+          {
+              "index": 12,
+              "opcode": "CR",
+              "arg": null
+          },
+          {
+              "index": 13,
+              "opcode": "PUSH",
+              "arg": 1
+          },
+          {
+              "index": 14,
+              "opcode": "PUSH",
+              "arg": 0
+          },
+          {
+              "index": 15,
+              "opcode": "LOOP_START",
+              "arg": null
+          },
+          {
+              "index": 16,
+              "opcode": "PUSH",
+              "arg": 256
+          },
+          {
+              "index": 17,
+              "opcode": "LOAD",
+              "arg": null
+          },
+          {
+              "index": 18,
+              "opcode": "DUP",
+              "arg": null
+          },
+          {
+              "index": 19,
+              "opcode": "JZ",
+              "arg": null
+          },
+          {
+              "index": 20,
+              "opcode": "DEC_I",
+              "arg": 24
+          },
+          {
+              "index": 21,
+              "opcode": "PUSH",
+              "arg": "in_pointer"
+          },
+          {
+              "index": 22,
+              "opcode": "SAVE",
+              "arg": null
+          },
+          {
+              "index": 23,
+              "opcode": "LOOP_END",
+              "arg": 16
+          },
+          {
+              "index": 24,
+              "opcode": "CR",
+              "arg": null
+          },
+          {
+              "index": 25,
+              "opcode": "PUSH",
+              "arg": 794
+          },
+          {
+              "index": 26,
+              "opcode": "LOAD",
+              "arg": null
+          },
+          {
+              "index": 27,
+              "opcode": "PUSH",
+              "arg": 1
+          },
+          {
+              "index": 28,
+              "opcode": "LOOP_START",
+              "arg": null
+          },
+          {
+              "index": 29,
+              "opcode": "PUSH",
+              "arg": 794
+          },
+          {
+              "index": 30,
+              "opcode": "PUSH",
+              "arg": "i"
+          },
+          {
+              "index": 31,
+              "opcode": "ADD",
+              "arg": null
+          },
+          {
+              "index": 32,
+              "opcode": "LOAD",
+              "arg": null
+          },
+          {
+              "index": 33,
+              "opcode": "PUSH",
+              "arg": 257
+          },
+          {
+              "index": 34,
+              "opcode": "SAVE",
+              "arg": null
+          },
+          {
+              "index": 35,
+              "opcode": "LOOP_END",
+              "arg": 30
+          },
+          {
+              "index": 36,
+              "opcode": "PUSH",
+              "arg": 1
+          },
+          {
+              "index": 37,
+              "opcode": "PUSH",
+              "arg": 0
+          },
+          {
+              "index": 38,
+              "opcode": "LOOP_START",
+              "arg": null
+          },
+          {
+              "index": 39,
+              "opcode": "PUSH",
+              "arg": "out_pointer"
+          },
+          {
+              "index": 40,
+              "opcode": "LOAD",
+              "arg": null
+          },
+          {
+              "index": 41,
+              "opcode": "DUP",
+              "arg": null
+          },
+          {
+              "index": 42,
+              "opcode": "JZ",
+              "arg": null
+          },
+          {
+              "index": 43,
+              "opcode": "DEC_I",
+              "arg": null
+          },
+          {
+              "index": 44,
+              "opcode": "DUP",
+              "arg": 49
+          },
+          {
+              "index": 45,
+              "opcode": "PUSH",
+              "arg": 257
+          },
+          {
+              "index": 46,
+              "opcode": "SAVE",
+              "arg": null
+          },
+          {
+              "index": 47,
+              "opcode": "LOOP_END",
+              "arg": 40
+          },
+          {
+              "index": 48,
+              "opcode": "HALT",
+              "arg": null
+          }
+      ]
+  }
+out_stdout: |
+  source LoC: 34 code instr: 49
+  ============================================================
+  Error during simulation: Stack underflow
+out_log: |
+  DEBUG    root:machine.py:38 output: '' << '\n'
+  DEBUG    root:machine.py:158 TICK:   4 PC:   1 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 768
+  DEBUG    root:machine.py:158 TICK:   5 PC:   2 LOOP_COUNTER:   0 TOP OF STACK:     768 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:158 TICK:   7 PC:   3 LOOP_COUNTER:   0 TOP OF STACK:      25 SP:   1 	PUSH arg: 1
+  DEBUG    root:machine.py:158 TICK:   8 PC:   4 LOOP_COUNTER:   0 TOP OF STACK:       1 SP:   2 	LOOP_START arg: None
+  DEBUG    root:machine.py:158 TICK:  12 PC:   5 LOOP_COUNTER:   1 TOP OF STACK: Empty   SP:   0 	PUSH arg: 768
+  DEBUG    root:machine.py:158 TICK:  13 PC:   6 LOOP_COUNTER:   1 TOP OF STACK:     768 SP:   1 	PUSH arg: i
+  DEBUG    root:machine.py:158 TICK:  14 PC:   7 LOOP_COUNTER:   1 TOP OF STACK:       1 SP:   2 	ADD arg: None
+  DEBUG    root:machine.py:158 TICK:  16 PC:   8 LOOP_COUNTER:   1 TOP OF STACK:     769 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:158 TICK:  18 PC:   9 LOOP_COUNTER:   1 TOP OF STACK:      72 SP:   1 	PUSH arg: 257
+  DEBUG    root:machine.py:158 TICK:  19 PC:  10 LOOP_COUNTER:   1 TOP OF STACK:     257 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\n' << 'H'
+  DEBUG    root:machine.py:158 TICK:  21 PC:  11 LOOP_COUNTER:   1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 5
+  DEBUG    root:machine.py:158 TICK:  23 PC:   6 LOOP_COUNTER:   2 TOP OF STACK: Empty   SP:   0 	PUSH arg: i
+  DEBUG    root:machine.py:158 TICK:  24 PC:   7 LOOP_COUNTER:   2 TOP OF STACK:       2 SP:   1 	ADD arg: None
