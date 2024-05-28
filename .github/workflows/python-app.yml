@@ -27,10 +27,6 @@ jobs:
           pip install poetry
           poetry install
 
-      - name: Check file encodings
-        run: |
-          find . -type f -exec file --mime {} \;
-
       - name: Run tests and collect coverage
         run: |
           poetry run coverage run -m pytest .
