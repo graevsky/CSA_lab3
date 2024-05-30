@@ -98,7 +98,7 @@
         {
             "index": 11,
             "opcode": "LOOP_END",
-            "arg": 5
+            "arg": 4
         },
         {
             "index": 12,
@@ -218,7 +218,7 @@
         {
             "index": 35,
             "opcode": "LOOP_END",
-            "arg": 30
+            "arg": 29
         },
         {
             "index": 36,

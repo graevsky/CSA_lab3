@@ -70,7 +70,7 @@
         {
             "index": 10,
             "opcode": "LOOP_END",
-            "arg": 3
+            "arg": 4
         },
         {
             "index": 11,

@@ -195,7 +195,7 @@ def second_pass(commands):
             )
             index += 1
 
-            loop_start_index = index
+            loop_start_index = index-1
             code.append(
                 {
                     "index": index,
