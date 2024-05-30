@@ -138,12 +138,12 @@
         {
             "index": 19,
             "opcode": "JZ",
-            "arg": null
+            "arg": 23
         },
         {
             "index": 20,
             "opcode": "DEC_I",
-            "arg": 24
+            "arg": null
         },
         {
             "index": 21,
@@ -158,7 +158,7 @@
         {
             "index": 23,
             "opcode": "LOOP_END",
-            "arg": 16
+            "arg": 15
         },
         {
             "index": 24,
@@ -218,7 +218,7 @@
         {
             "index": 35,
             "opcode": "LOOP_END",
-            "arg": 29
+            "arg": 28
         },
         {
             "index": 36,
@@ -253,7 +253,7 @@
         {
             "index": 42,
             "opcode": "JZ",
-            "arg": null
+            "arg": 47
         },
         {
             "index": 43,
@@ -263,7 +263,7 @@
         {
             "index": 44,
             "opcode": "DUP",
-            "arg": 49
+            "arg": null
         },
         {
             "index": 45,
@@ -278,7 +278,7 @@
         {
             "index": 47,
             "opcode": "LOOP_END",
-            "arg": 40
+            "arg": 38
         },
         {
             "index": 48,

@@ -18,7 +18,7 @@ in_source: |-
   Euler1
   .
 
-in_stdin: ''
+in_stdin: |
 out_code: |-
   {
       "data": {},

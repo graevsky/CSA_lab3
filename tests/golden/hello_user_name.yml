@@ -176,12 +176,12 @@ out_code: |-
           {
               "index": 19,
               "opcode": "JZ",
-              "arg": null
+              "arg": 23
           },
           {
               "index": 20,
               "opcode": "DEC_I",
-              "arg": 24
+              "arg": null
           },
           {
               "index": 21,
@@ -196,7 +196,7 @@ out_code: |-
           {
               "index": 23,
               "opcode": "LOOP_END",
-              "arg": 16
+              "arg": 15
           },
           {
               "index": 24,
@@ -256,7 +256,7 @@ out_code: |-
           {
               "index": 35,
               "opcode": "LOOP_END",
-              "arg": 29
+              "arg": 28
           },
           {
               "index": 36,
@@ -291,7 +291,7 @@ out_code: |-
           {
               "index": 42,
               "opcode": "JZ",
-              "arg": null
+              "arg": 47
           },
           {
               "index": 43,
@@ -301,7 +301,7 @@ out_code: |-
           {
               "index": 44,
               "opcode": "DUP",
-              "arg": 49
+              "arg": null
           },
           {
               "index": 45,
@@ -316,7 +316,7 @@ out_code: |-
           {
               "index": 47,
               "opcode": "LOOP_END",
-              "arg": 40
+              "arg": 38
           },
           {
               "index": 48,
@@ -326,10 +326,14 @@ out_code: |-
       ]
   }
 
-out_stdout: |
+out_stdout: |-
   source LoC: 34 code instr: 49
   ============================================================
-  Error during simulation: Stack underflow
+
+  Hello, what is your name?
+
+  Hello, Username
+  instr_counter: 446 ticks: 639
 
 out_log: |
   DEBUG    root:machine.py:38 output: '' << '\n'
@@ -546,9 +550,241 @@ out_log: |
   DEBUG    root:machine.py:168 TICK: 297 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
   DEBUG    root:machine.py:70 input: 'U'
   DEBUG    root:machine.py:168 TICK: 299 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   1 	DUP arg: None
-  DEBUG    root:machine.py:168 TICK: 301 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   2 	JZ arg: None
-  DEBUG    root:machine.py:168 TICK: 301 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   1 	DEC_I arg: 24
+  DEBUG    root:machine.py:168 TICK: 301 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 301 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   1 	DEC_I arg: None
   DEBUG    root:machine.py:168 TICK: 302 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:      85 SP:   1 	PUSH arg: in_pointer
   DEBUG    root:machine.py:168 TICK: 304 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     512 SP:   2 	SAVE arg: None
-  DEBUG    root:machine.py:168 TICK: 306 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 16
-  DEBUG    root:machine.py:168 TICK: 308 PC:  17 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 306 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 308 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 309 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 's'
+  DEBUG    root:machine.py:168 TICK: 311 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:     115 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 313 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:     115 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 313 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:     115 SP:   1 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 314 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:     115 SP:   1 	PUSH arg: in_pointer
+  DEBUG    root:machine.py:168 TICK: 316 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     513 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK: 318 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 320 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 321 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 'e'
+  DEBUG    root:machine.py:168 TICK: 323 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 325 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 325 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   1 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 326 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:   1 	PUSH arg: in_pointer
+  DEBUG    root:machine.py:168 TICK: 328 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     514 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK: 330 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 332 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 333 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 'r'
+  DEBUG    root:machine.py:168 TICK: 335 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:     114 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 337 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:     114 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 337 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:     114 SP:   1 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 338 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:     114 SP:   1 	PUSH arg: in_pointer
+  DEBUG    root:machine.py:168 TICK: 340 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     515 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK: 342 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 344 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 345 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 'n'
+  DEBUG    root:machine.py:168 TICK: 347 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:     110 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 349 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:     110 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 349 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:     110 SP:   1 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 350 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:     110 SP:   1 	PUSH arg: in_pointer
+  DEBUG    root:machine.py:168 TICK: 352 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     516 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK: 354 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 356 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 357 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 'a'
+  DEBUG    root:machine.py:168 TICK: 359 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:      97 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 361 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:      97 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 361 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:      97 SP:   1 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 362 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:      97 SP:   1 	PUSH arg: in_pointer
+  DEBUG    root:machine.py:168 TICK: 364 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     517 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK: 366 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 368 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 369 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 'm'
+  DEBUG    root:machine.py:168 TICK: 371 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:     109 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 373 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:     109 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 373 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:     109 SP:   1 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 374 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:     109 SP:   1 	PUSH arg: in_pointer
+  DEBUG    root:machine.py:168 TICK: 376 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     518 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK: 378 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 380 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 381 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 'e'
+  DEBUG    root:machine.py:168 TICK: 383 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 385 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 385 PC:  20 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   1 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 386 PC:  21 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:   1 	PUSH arg: in_pointer
+  DEBUG    root:machine.py:168 TICK: 388 PC:  22 LOOP_COUNTER:  -1 TOP OF STACK:     519 SP:   2 	SAVE arg: None
+  DEBUG    root:machine.py:168 TICK: 390 PC:  23 LOOP_COUNTER:  -1 TOP OF STACK: Empty   SP:   0 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 392 PC:  16 LOOP_COUNTER:   0 TOP OF STACK: Empty   SP:   0 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 393 PC:  17 LOOP_COUNTER:   0 TOP OF STACK:     256 SP:   1 	LOAD arg: None
+  DEBUG    root:machine.py:70 input: 0
+  DEBUG    root:machine.py:168 TICK: 395 PC:  18 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:   1 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 397 PC:  19 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:   2 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 399 PC:  23 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:   1 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 401 PC:  16 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   1 	PUSH arg: 256
+  DEBUG    root:machine.py:168 TICK: 402 PC:  17 LOOP_COUNTER:   1 TOP OF STACK:     256 SP:   2 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 404 PC:  18 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   2 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 406 PC:  19 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   3 	JZ arg: 23
+  DEBUG    root:machine.py:168 TICK: 408 PC:  23 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 15
+  DEBUG    root:machine.py:168 TICK: 411 PC:  24 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   2 	CR arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n' << '\n'
+  DEBUG    root:machine.py:168 TICK: 415 PC:  25 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 416 PC:  26 LOOP_COUNTER:   1 TOP OF STACK:     794 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 418 PC:  27 LOOP_COUNTER:   1 TOP OF STACK:       7 SP:   3 	PUSH arg: 1
+  DEBUG    root:machine.py:168 TICK: 419 PC:  28 LOOP_COUNTER:   1 TOP OF STACK:       1 SP:   4 	LOOP_START arg: None
+  DEBUG    root:machine.py:168 TICK: 422 PC:  29 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 423 PC:  30 LOOP_COUNTER:   1 TOP OF STACK:     794 SP:   3 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK: 424 PC:  31 LOOP_COUNTER:   1 TOP OF STACK:       1 SP:   4 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK: 426 PC:  32 LOOP_COUNTER:   1 TOP OF STACK:     795 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 428 PC:  33 LOOP_COUNTER:   1 TOP OF STACK:      72 SP:   3 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 429 PC:  34 LOOP_COUNTER:   1 TOP OF STACK:     257 SP:   4 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\n' << 'H'
+  DEBUG    root:machine.py:168 TICK: 431 PC:  35 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 28
+  DEBUG    root:machine.py:168 TICK: 433 PC:  29 LOOP_COUNTER:   2 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 434 PC:  30 LOOP_COUNTER:   2 TOP OF STACK:     794 SP:   3 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK: 435 PC:  31 LOOP_COUNTER:   2 TOP OF STACK:       2 SP:   4 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK: 437 PC:  32 LOOP_COUNTER:   2 TOP OF STACK:     796 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 439 PC:  33 LOOP_COUNTER:   2 TOP OF STACK:     101 SP:   3 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 440 PC:  34 LOOP_COUNTER:   2 TOP OF STACK:     257 SP:   4 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nH' << 'e'
+  DEBUG    root:machine.py:168 TICK: 442 PC:  35 LOOP_COUNTER:   2 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 28
+  DEBUG    root:machine.py:168 TICK: 444 PC:  29 LOOP_COUNTER:   3 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 445 PC:  30 LOOP_COUNTER:   3 TOP OF STACK:     794 SP:   3 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK: 446 PC:  31 LOOP_COUNTER:   3 TOP OF STACK:       3 SP:   4 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK: 448 PC:  32 LOOP_COUNTER:   3 TOP OF STACK:     797 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 450 PC:  33 LOOP_COUNTER:   3 TOP OF STACK:     108 SP:   3 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 451 PC:  34 LOOP_COUNTER:   3 TOP OF STACK:     257 SP:   4 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHe' << 'l'
+  DEBUG    root:machine.py:168 TICK: 453 PC:  35 LOOP_COUNTER:   3 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 28
+  DEBUG    root:machine.py:168 TICK: 455 PC:  29 LOOP_COUNTER:   4 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 456 PC:  30 LOOP_COUNTER:   4 TOP OF STACK:     794 SP:   3 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK: 457 PC:  31 LOOP_COUNTER:   4 TOP OF STACK:       4 SP:   4 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK: 459 PC:  32 LOOP_COUNTER:   4 TOP OF STACK:     798 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 461 PC:  33 LOOP_COUNTER:   4 TOP OF STACK:     108 SP:   3 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 462 PC:  34 LOOP_COUNTER:   4 TOP OF STACK:     257 SP:   4 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHel' << 'l'
+  DEBUG    root:machine.py:168 TICK: 464 PC:  35 LOOP_COUNTER:   4 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 28
+  DEBUG    root:machine.py:168 TICK: 466 PC:  29 LOOP_COUNTER:   5 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 467 PC:  30 LOOP_COUNTER:   5 TOP OF STACK:     794 SP:   3 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK: 468 PC:  31 LOOP_COUNTER:   5 TOP OF STACK:       5 SP:   4 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK: 470 PC:  32 LOOP_COUNTER:   5 TOP OF STACK:     799 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 472 PC:  33 LOOP_COUNTER:   5 TOP OF STACK:     111 SP:   3 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 473 PC:  34 LOOP_COUNTER:   5 TOP OF STACK:     257 SP:   4 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHell' << 'o'
+  DEBUG    root:machine.py:168 TICK: 475 PC:  35 LOOP_COUNTER:   5 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 28
+  DEBUG    root:machine.py:168 TICK: 477 PC:  29 LOOP_COUNTER:   6 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 478 PC:  30 LOOP_COUNTER:   6 TOP OF STACK:     794 SP:   3 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK: 479 PC:  31 LOOP_COUNTER:   6 TOP OF STACK:       6 SP:   4 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK: 481 PC:  32 LOOP_COUNTER:   6 TOP OF STACK:     800 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 483 PC:  33 LOOP_COUNTER:   6 TOP OF STACK:      44 SP:   3 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 484 PC:  34 LOOP_COUNTER:   6 TOP OF STACK:     257 SP:   4 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello' << ','
+  DEBUG    root:machine.py:168 TICK: 486 PC:  35 LOOP_COUNTER:   6 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 28
+  DEBUG    root:machine.py:168 TICK: 488 PC:  29 LOOP_COUNTER:   7 TOP OF STACK:       0 SP:   2 	PUSH arg: 794
+  DEBUG    root:machine.py:168 TICK: 489 PC:  30 LOOP_COUNTER:   7 TOP OF STACK:     794 SP:   3 	PUSH arg: i
+  DEBUG    root:machine.py:168 TICK: 490 PC:  31 LOOP_COUNTER:   7 TOP OF STACK:       7 SP:   4 	ADD arg: None
+  DEBUG    root:machine.py:168 TICK: 492 PC:  32 LOOP_COUNTER:   7 TOP OF STACK:     801 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 494 PC:  33 LOOP_COUNTER:   7 TOP OF STACK:      32 SP:   3 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 495 PC:  34 LOOP_COUNTER:   7 TOP OF STACK:     257 SP:   4 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello,' << ' '
+  DEBUG    root:machine.py:168 TICK: 497 PC:  35 LOOP_COUNTER:   7 TOP OF STACK:       0 SP:   2 	LOOP_END arg: 28
+  DEBUG    root:machine.py:168 TICK: 500 PC:  36 LOOP_COUNTER:   7 TOP OF STACK:       0 SP:   2 	PUSH arg: 1
+  DEBUG    root:machine.py:168 TICK: 501 PC:  37 LOOP_COUNTER:   7 TOP OF STACK:       1 SP:   3 	PUSH arg: 0
+  DEBUG    root:machine.py:168 TICK: 502 PC:  38 LOOP_COUNTER:   7 TOP OF STACK:       0 SP:   4 	LOOP_START arg: None
+  DEBUG    root:machine.py:168 TICK: 505 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:   2 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 507 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     512 SP:   3 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 509 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   3 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 511 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   4 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 511 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   3 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 512 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:      85 SP:   3 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 514 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:      85 SP:   4 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 515 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:   5 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, ' << 'U'
+  DEBUG    root:machine.py:168 TICK: 517 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:      85 SP:   3 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 519 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:      85 SP:   3 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 521 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     513 SP:   4 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 523 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:     115 SP:   4 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 525 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:     115 SP:   5 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 525 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:     115 SP:   4 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 526 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:     115 SP:   4 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 528 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:     115 SP:   5 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 529 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:   6 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, U' << 's'
+  DEBUG    root:machine.py:168 TICK: 531 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:     115 SP:   4 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 533 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:     115 SP:   4 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 535 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     514 SP:   5 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 537 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   5 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 539 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   6 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 539 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   5 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 540 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:   5 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 542 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:   6 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 543 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:   7 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, Us' << 'e'
+  DEBUG    root:machine.py:168 TICK: 545 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:   5 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 547 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:   5 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 549 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     515 SP:   6 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 551 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:     114 SP:   6 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 553 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:     114 SP:   7 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 553 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:     114 SP:   6 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 554 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:     114 SP:   6 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 556 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:     114 SP:   7 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 557 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:   8 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, Use' << 'r'
+  DEBUG    root:machine.py:168 TICK: 559 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:     114 SP:   6 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 561 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:     114 SP:   6 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 563 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     516 SP:   7 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 565 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:     110 SP:   7 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 567 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:     110 SP:   8 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 567 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:     110 SP:   7 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 568 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:     110 SP:   7 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 570 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:     110 SP:   8 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 571 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:   9 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, User' << 'n'
+  DEBUG    root:machine.py:168 TICK: 573 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:     110 SP:   7 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 575 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:     110 SP:   7 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 577 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     517 SP:   8 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 579 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:      97 SP:   8 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 581 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:      97 SP:   9 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 581 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:      97 SP:   8 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 582 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:      97 SP:   8 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 584 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:      97 SP:   9 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 585 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:  10 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, Usern' << 'a'
+  DEBUG    root:machine.py:168 TICK: 587 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:      97 SP:   8 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 589 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:      97 SP:   8 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 591 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     518 SP:   9 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 593 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:     109 SP:   9 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 595 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:     109 SP:  10 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 595 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:     109 SP:   9 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 596 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:     109 SP:   9 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 598 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:     109 SP:  10 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 599 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:  11 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, Userna' << 'm'
+  DEBUG    root:machine.py:168 TICK: 601 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:     109 SP:   9 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 603 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:     109 SP:   9 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 605 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     519 SP:  10 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 607 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:  10 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 609 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:  11 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 609 PC:  43 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:  10 	DEC_I arg: None
+  DEBUG    root:machine.py:168 TICK: 610 PC:  44 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:  10 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 612 PC:  45 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:  11 	PUSH arg: 257
+  DEBUG    root:machine.py:168 TICK: 613 PC:  46 LOOP_COUNTER:  -1 TOP OF STACK:     257 SP:  12 	SAVE arg: None
+  DEBUG    root:machine.py:38 output: '\nHello, what is your name?\n\nHello, Usernam' << 'e'
+  DEBUG    root:machine.py:168 TICK: 615 PC:  47 LOOP_COUNTER:  -1 TOP OF STACK:     101 SP:  10 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 617 PC:  39 LOOP_COUNTER:   0 TOP OF STACK:     101 SP:  10 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 619 PC:  40 LOOP_COUNTER:   0 TOP OF STACK:     520 SP:  11 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 621 PC:  41 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:  11 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 623 PC:  42 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:  12 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 625 PC:  47 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:  11 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 627 PC:  39 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:  11 	PUSH arg: out_pointer
+  DEBUG    root:machine.py:168 TICK: 629 PC:  40 LOOP_COUNTER:   1 TOP OF STACK:     521 SP:  12 	LOAD arg: None
+  DEBUG    root:machine.py:168 TICK: 631 PC:  41 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:  12 	DUP arg: None
+  DEBUG    root:machine.py:168 TICK: 633 PC:  42 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:  13 	JZ arg: 47
+  DEBUG    root:machine.py:168 TICK: 635 PC:  47 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:  12 	LOOP_END arg: 38
+  DEBUG    root:machine.py:168 TICK: 638 PC:  48 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:  12 	HALT arg: None
+  DEBUG    root:machine.py:168 TICK: 639 PC:  49 LOOP_COUNTER:   1 TOP OF STACK:       0 SP:  12 	0
+  INFO     root:machine.py:169 End simulation
+  INFO     root:machine.py:170 output_buffer: '\nHello, what is your name?\n\nHello, Username'

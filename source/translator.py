@@ -169,7 +169,6 @@ def second_pass(commands):
         elif command.startswith("PSTR"):
             address = int(command.split()[1])
 
-            index += 1
             code.append(
                 {
                     "index": index,
@@ -195,7 +194,7 @@ def second_pass(commands):
             )
             index += 1
 
-            loop_start_index = index-1
+            loop_start_index = index
             code.append(
                 {
                     "index": index,
@@ -272,6 +271,7 @@ def second_pass(commands):
     for i, instr in enumerate(code):
         instr["index"] = i
     return code
+
 
 def translate(text):
     lines = text.strip().split("\n")
