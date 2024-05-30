@@ -283,9 +283,7 @@ def translate(text):
     preprocessed_commands, strings = preprocess_commands(expanded_program)
     code = second_pass(preprocessed_commands)
 
-    print(
-        f"source LoC: {loc} code instr: {len(code)}"
-    )
+    print(f"source LoC: {loc} code instr: {len(code)}")
 
     return {"data": strings, "program": code}
 
@@ -331,9 +329,7 @@ def parse_args():
     parser.add_argument(
         "source_file", nargs="?", help="The FORTH source file to translate."
     )
-    parser.add_argument(
-        "target_file", nargs="?", help="Machine code target file."
-    )
+    parser.add_argument("target_file", nargs="?", help="Machine code target file.")
     parser.add_argument(
         "-a",
         "--all",
@@ -356,7 +352,9 @@ def parse_args():
 
     if not args.all:
         if not args.source_file or not args.target_file:
-            parser.error("the following arguments are required: source_file, target_file")
+            parser.error(
+                "the following arguments are required: source_file, target_file"
+            )
 
     return args
 

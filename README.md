@@ -596,6 +596,29 @@ source LoC: 1 code instr: 12
   instr_counter: 100 ticks: 141
 ```
 
+Пример проверки исходного кода
+```shell
+$ poetry run pytest . -v
+=========================================================================================================================================================== test session starts ===========================================================================================================================================================
+platform win32 -- Python 3.12.0, pytest-8.2.1, pluggy-1.5.0 -- C:\Users\graev\OneDrive\Рабочий стол\csa_lab3\venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\graev\OneDrive\Рабочий стол\csa_lab3
+configfile: pytest.ini
+plugins: golden-0.2.2
+collected 4 items                                                                                                                                                                                                                                                                                                                          
+
+tests/test_golden.py::test_translator_and_machine[golden/cat.yml] PASSED                                                                                                                                                                                                                                                             [ 25%] 
+tests/test_golden.py::test_translator_and_machine[golden/hello.yml] PASSED                                                                                                                                                                                                                                                           [ 50%]
+tests/test_golden.py::test_translator_and_machine[golden/hello_user_name.yml] PASSED                                                                                                                                                                                                                                                 [ 75%]
+tests/test_golden.py::test_translator_and_machine[golden/prob1.yml] PASSED                                                                                                                                                                                                                                                           [100%]
+
+============================================================================================================================================================ 4 passed in 0.90s ============================================================================================================================================================ 
+$ poetry run ruff check .
+All checks passed!
+$ poetry run ruff format .
+6 files left unchanged
+```
+
 ## Аналитика
 
 | ФИО                          | алг             | LoC | code байт | code инстр. | инстр. | такт. | вариант                                                                     |
