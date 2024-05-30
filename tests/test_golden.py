@@ -18,6 +18,7 @@ def parse_translator_args(args):
         description="Translate FORTH code to machine code."
     )
     parser.add_argument("source_file", help="The FORTH source file to translate.")
+    parser.add_argument("target_file", help="Machine code target file.")
     parser.add_argument(
         "-a",
         "--all",
@@ -69,6 +70,7 @@ def test_translator_and_machine(golden, caplog):
 
     with tempfile.TemporaryDirectory() as tmpdirname:
         source = os.path.join(tmpdirname, "source.forth")
+        target = os.path.join(tmpdirname, "target.json")
         input_stream = os.path.join(tmpdirname, "input.txt")
 
         with open(source, "w", encoding="utf-8") as file:
@@ -77,19 +79,13 @@ def test_translator_and_machine(golden, caplog):
             file.write(golden["in_stdin"])
 
         with contextlib.redirect_stdout(io.StringIO()) as stdout:
-            translator_args = parse_translator_args([source, "-o", tmpdirname])
+            translator_args = parse_translator_args([source, target, "-o", tmpdirname])
             translator.main(translator_args)
             print("============================================================")
-            target_path = os.path.join(
-                tmpdirname, os.path.basename(source).replace(".forth", ".json")
-            )
-            machine_args = parse_machine_args([input_stream, target_path])
+            machine_args = parse_machine_args([input_stream, target])
             machine.main(machine_args)
 
-        target_path = os.path.join(
-            tmpdirname, os.path.basename(source).replace(".forth", ".json")
-        )
-        with open(target_path, encoding="utf-8") as file:
+        with open(target, encoding="utf-8") as file:
             code = file.read()
 
         assert code == golden.out["out_code"]

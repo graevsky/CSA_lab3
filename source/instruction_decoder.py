@@ -109,6 +109,7 @@ class InstructionDecoder:
 
     def execute_halt(self, instruction):
         self.control_unit.halted = True
+        self.control_unit.tick()
 
     def unknown_instruction(self, instruction):
         raise ValueError(f"Unknown opcode: {instruction.get('opcode')}")

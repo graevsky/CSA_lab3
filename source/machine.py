@@ -126,7 +126,7 @@ class ControlUnit:
         self.init_val = self.data_path.pop_from_stack()
         self.max_val = self.data_path.pop_from_stack()
         self.loop_counter = self.init_val
-        self.tick(4)
+        self.tick(3)
 
     """Проверка условия и остановка цикла"""
 

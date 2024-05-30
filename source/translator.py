@@ -6,13 +6,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from source.isa import Opcode, write_code, IOAddresses
 
 
-def parse_line(line):
-    parts = line.strip().split()
-    command = parts[0]
-    arguments = parts[1:] if len(parts) > 1 else []
-    return command, arguments
-
-
 def first_pass(lines):
     procedures = {}
     main_program = []
@@ -103,7 +96,7 @@ command_to_opcode = {
 }
 
 
-def second_pass(commands, strings):
+def second_pass(commands):
     code = []
     index = 0
     loop_stack = []
@@ -283,17 +276,17 @@ def second_pass(commands, strings):
 
 def translate(text):
     lines = text.strip().split("\n")
-    loc = len(lines)  # Lines of Code
+    loc = len(lines)
 
     procedures, main_program = first_pass(lines)
 
     expanded_program = expand_procedures(main_program, procedures)
     preprocessed_commands, strings = preprocess_commands(expanded_program)
-    code = second_pass(preprocessed_commands, strings)
+    code = second_pass(preprocessed_commands)
 
     print(
         f"source LoC: {loc} code instr: {len(code)}"
-    )  # Output LOC and number of instructions
+    )
 
     return {"data": strings, "program": code}
 
@@ -319,15 +312,14 @@ def main(arguments):
             process_dir(arguments.input_folder, arguments.output_folder)
         else:
             source_file = arguments.source_file
+            target_file = arguments.target_file
             with open(source_file, "r", encoding="utf-8") as file:
                 source_text = file.read()
             machine_code = translate(source_text)
             output_dir = arguments.output_folder
             if not os.path.exists(output_dir):
                 os.makedirs(output_dir)
-            output_file = os.path.join(
-                output_dir, os.path.basename(source_file).replace(".forth", ".json")
-            )
+            output_file = os.path.join(output_dir, target_file)
             write_code(output_file, machine_code)
     except Exception as e:
         print(f"Error in translator: {e}")
@@ -339,6 +331,9 @@ def parse_args():
     )
     parser.add_argument(
         "source_file", nargs="?", help="The FORTH source file to translate."
+    )
+    parser.add_argument(
+        "target_file", nargs="?", help="Machine code target file."
     )
     parser.add_argument(
         "-a",
@@ -358,7 +353,13 @@ def parse_args():
         default="./source/machine_code",
         help="Directory to store the output JSON files.",
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+
+    if not args.all:
+        if not args.source_file or not args.target_file:
+            parser.error("the following arguments are required: source_file, target_file")
+
+    return args
 
 
 if __name__ == "__main__":

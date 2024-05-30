@@ -2,3 +2,4 @@
 /.ruff_cache
 /check_encoding.ps1
 /extra_progs
+.coverage
