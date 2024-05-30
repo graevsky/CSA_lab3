@@ -273,7 +273,6 @@ def second_pass(commands):
         instr["index"] = i
     return code
 
-
 def translate(text):
     lines = text.strip().split("\n")
     loc = len(lines)
