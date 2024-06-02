@@ -88,7 +88,6 @@ command_to_opcode = {
     "mod": Opcode.MOD,
     "or": Opcode.OR,
     "==": Opcode.EQUALS,
-    "cr": Opcode.CR,
     "+": Opcode.ADD,
     "dup": Opcode.DUP,
     "dec_i": Opcode.DEC_I,
@@ -111,6 +110,31 @@ def second_pass(commands):
         if command.isdigit() or command == "i":
             arguments.append(int(command) if command.isdigit() else "i")
             opcode = Opcode.PUSH
+        elif command == "cr":
+            code.append(
+                {
+                    "index": index,
+                    "opcode": Opcode.PUSH,
+                    "arg": 10,
+                }
+            )
+            index += 1
+            code.append(
+                {
+                    "index": index,
+                    "opcode": Opcode.PUSH,
+                    "arg": IOAddresses.OUT_ADDR,
+                }
+            )
+            index += 1
+            code.append(
+                {
+                    "index": index,
+                    "opcode": Opcode.SAVE,
+                    "arg": None,
+                }
+            )
+            index += 1
         elif " do" in command:
             parts = command.split()
             if len(parts) != 3 or parts[2] != "do":

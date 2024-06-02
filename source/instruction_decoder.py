@@ -93,14 +93,6 @@ class InstructionDecoder:
         self.control_unit.data_path.save(False)
         self.control_unit.tick(2)
 
-    def execute_cr(self, instruction):
-        self.control_unit.data_path.push_to_stack(10)
-        self.control_unit.tick()
-        self.control_unit.data_path.push_to_stack(IOAddresses.OUT_ADDR)
-        self.control_unit.tick()
-        self.control_unit.data_path.save(True)
-        self.control_unit.tick(2)
-
     def execute_dup(self, instruction):
         val = self.control_unit.data_path.pop_from_stack()
         self.control_unit.data_path.push_to_stack(val)
