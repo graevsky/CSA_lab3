@@ -189,7 +189,7 @@ def second_pass(commands):
                 {
                     "index": index,
                     "opcode": Opcode.PUSH,
-                    "arg": 1,
+                    "arg": 0,
                 }
             )
             index += 1
@@ -207,7 +207,7 @@ def second_pass(commands):
                 {
                     "index": index,
                     "opcode": Opcode.PUSH,
-                    "arg": address + IOAddresses.STRING_STORAGE,
+                    "arg": address + IOAddresses.STRING_STORAGE + 1,
                 }
             )
             index += 1

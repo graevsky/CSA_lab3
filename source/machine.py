@@ -167,9 +167,10 @@ class ControlUnit:
                 self.execute_instruction()
                 logging.debug(self)
             logging.info("End simulation")
-            logging.info(
-                "output_buffer: %s", repr("".join(self.data_path.output_buffer))
+            formatted_output = repr("".join(self.data_path.output_buffer)).replace(
+                "\\n", "\n"
             )
+            logging.info("output_buffer: %s", formatted_output)
         except EOFError:
             logging.warning("Input buffer is empty!")
         return "".join(self.data_path.output_buffer)

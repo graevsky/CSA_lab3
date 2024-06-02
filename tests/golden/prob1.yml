@@ -14078,4 +14078,4 @@ out_log: |
   DEBUG    root:machine.py:168 TICK: 20477 PC:  20 LOOP_COUNTER: 999 TOP OF STACK: Empty   SP:   0 	HALT arg: None
   DEBUG    root:machine.py:168 TICK: 20478 PC:  21 LOOP_COUNTER: 999 TOP OF STACK: Empty   SP:   0 	0
   INFO     root:machine.py:169 End simulation
-  INFO     root:machine.py:170 output_buffer: '233168'
+  INFO     root:machine.py:171 output_buffer: '233168'

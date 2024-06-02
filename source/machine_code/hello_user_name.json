@@ -58,7 +58,7 @@
         {
             "index": 3,
             "opcode": "PUSH",
-            "arg": 1
+            "arg": 0
         },
         {
             "index": 4,
@@ -68,7 +68,7 @@
         {
             "index": 5,
             "opcode": "PUSH",
-            "arg": 768
+            "arg": 769
         },
         {
             "index": 6,
@@ -178,7 +178,7 @@
         {
             "index": 27,
             "opcode": "PUSH",
-            "arg": 1
+            "arg": 0
         },
         {
             "index": 28,
@@ -188,7 +188,7 @@
         {
             "index": 29,
             "opcode": "PUSH",
-            "arg": 794
+            "arg": 795
         },
         {
             "index": 30,
