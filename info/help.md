@@ -22,6 +22,6 @@
    3. Подробнее ```python machine.py -h```.
 3. Для запуска golden тестов ```poetry run pytest```
 4. Для обновления golden тестов ```poetry run pytest . -v --update-goldens```
-5. Для проверки ruff ```poetry run ruff check .```
-6. Для форматирования ruff ```poetry run ruff format --check .```
+5. Для проверки ruff ```poetry run ruff format --check .```
+6. Для форматирования ruff ```poetry run ruff format .```
    
