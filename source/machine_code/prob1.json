@@ -9,7 +9,7 @@
         {
             "index": 1,
             "opcode": "PUSH",
-            "arg": 999
+            "arg": 1000
         },
         {
             "index": 2,

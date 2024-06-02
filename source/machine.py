@@ -63,12 +63,10 @@ class DataPath:
         ):  # Если это адрес ввода, то значение в стек попадает из input buffer
             if self.input_buffer:
                 symbol = self.input_buffer.pop(0)
-                symbol_code = 0
                 if isinstance(symbol, str):
-                    symbol_code = ord(symbol)
-
-                self.push_to_stack(symbol_code)
-                logging.debug("input: %s", repr(symbol))
+                    symbol = ord(symbol)
+                self.push_to_stack(symbol)
+                logging.debug("input: %s", symbol)
             else:
                 raise EOFError("Input buffer is empty!")
 
@@ -134,7 +132,7 @@ class ControlUnit:
     def end_loop(self):
         next_value = self.loop_counter + self.step
         self.tick()
-        if next_value <= self.max_val:
+        if next_value < self.max_val:
             self.loop_counter = next_value
             self.tick()
             return True
