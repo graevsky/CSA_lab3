@@ -192,4 +192,4 @@ out_log: |
   DEBUG    root:machine.py:168 TICK: 140 PC:  11 LOOP_COUNTER:  11 TOP OF STACK: Empty   SP:   0 	HALT arg: None
   DEBUG    root:machine.py:168 TICK: 141 PC:  12 LOOP_COUNTER:  11 TOP OF STACK: Empty   SP:   0 	0
   INFO     root:machine.py:169 End simulation
-  INFO     root:machine.py:171 output_buffer: 'Hello world!'
+  INFO     root:machine.py:173 output_buffer: 'Hello world!'

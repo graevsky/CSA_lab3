@@ -189,5 +189,5 @@ out_log: |
   DEBUG    root:machine.py:168 TICK: 119 PC:  12 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:   9 	HALT arg: None
   DEBUG    root:machine.py:168 TICK: 120 PC:  13 LOOP_COUNTER:   0 TOP OF STACK:       0 SP:   9 	0
   INFO     root:machine.py:169 End simulation
-  INFO     root:machine.py:171 output_buffer: 'Username'
+  INFO     root:machine.py:173 output_buffer: 'Username'
 
