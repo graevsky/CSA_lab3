@@ -113,9 +113,3 @@ class InstructionDecoder:
 
     def unknown_instruction(self, instruction):
         raise ValueError(f"Unknown opcode: {instruction.get('opcode')}")
-
-    def check_pointers(self):  # TODO:check if needed
-        if self.control_unit.mem_out_pointer == self.control_unit.mem_inp_pointer:
-            self.control_unit.mem_inp_pointer = IOAddresses.INPUT_STORAGE
-            self.control_unit.mem_out_pointer = IOAddresses.INPUT_STORAGE
-            self.control_unit.tick(2)

@@ -1,0 +1,15 @@
+{
+    "data": {},
+    "program": [
+        {
+            "index": 0,
+            "opcode": "PUSH",
+            "arg": 1
+        },
+        {
+            "index": 1,
+            "opcode": "HALT",
+            "arg": null
+        }
+    ]
+}

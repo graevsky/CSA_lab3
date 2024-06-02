@@ -66,10 +66,11 @@ class DataPath:
                 symbol_code = 0
                 if isinstance(symbol, str):
                     symbol_code = ord(symbol)
+
                 self.push_to_stack(symbol_code)
                 logging.debug("input: %s", repr(symbol))
             else:
-                self.push_to_stack(0)
+                raise EOFError("Input buffer is empty!")
 
         else:  # Если это просто адрес из памяти, то значение из него помещается в стек
             value = self.memory[addr]
@@ -162,12 +163,15 @@ class ControlUnit:
         self.jump_latch = 0
 
     def run(self):
-        while not self.halted:
-            self.fetch_instruction()
-            self.execute_instruction()
-            logging.debug(self)
-        logging.info("End simulation")
-        logging.info("output_buffer: %s", repr("".join(self.data_path.output_buffer)))
+        try:
+            while not self.halted:
+                self.fetch_instruction()
+                self.execute_instruction()
+                logging.debug(self)
+            logging.info("End simulation")
+            logging.info("output_buffer: %s", repr("".join(self.data_path.output_buffer)))
+        except EOFError:
+            logging.warning("Input buffer is empty!")
         return "".join(self.data_path.output_buffer)
 
     def __repr__(self):
