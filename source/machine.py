@@ -31,15 +31,6 @@ class DataPath:
         self.alu_latch = 0
         self.alu = ALU(self)
 
-    def write_io(self, value, tochar=False):
-        """Вывод IO"""
-        if tochar:
-            value = chr(value)
-        logging.debug(
-            "output: %s << %s", repr("".join(self.output_buffer)), repr(value)
-        )
-        self.output_buffer.append(str(value))
-
     """Помещает значение в стек и увеличивает счетчик стека на 1"""
 
     def push_to_stack(self, value):
