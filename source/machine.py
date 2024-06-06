@@ -25,12 +25,12 @@ class DataPath:
         self.stack_pointer = 0  # Указатель стека
         self.input_buffer = list(inp_data) + [0]  # Буфер для входных данных
         self.output_buffer = list()  # Буфер для выходных данных
+        self.addr_latch = 0  # Регистр для хранения адреса для работы с памятью
 
         """Инициализация ALU"""
         self.alu_latch = 0
         self.alu = ALU(self)
 
-    # Можно ли оставить?
     def write_io(self, value, tochar=False):
         """Вывод IO"""
         if tochar:
@@ -57,34 +57,41 @@ class DataPath:
     """Загружает значение из памяти в стек"""
 
     def load(self):
-        addr = self.pop_from_stack()  # Адрес для загрузки берется из стека
+        self.addr_latch = self.pop_from_stack()  # Адрес для загрузки берется из стека
         if (
-            addr == IOAddresses.INP_ADDR
+            self.addr_latch == IOAddresses.INP_ADDR
         ):  # Если это адрес ввода, то значение в стек попадает из input buffer
             if self.input_buffer:
                 symbol = self.input_buffer.pop(0)
                 if isinstance(symbol, str):
                     symbol = ord(symbol)
                 self.push_to_stack(symbol)
+                symbol = chr(symbol)
+                if ord(symbol) == 0:
+                    symbol = ""
                 logging.debug("input: %s", symbol)
             else:
                 raise EOFError("Input buffer is empty!")
-
         else:  # Если это просто адрес из памяти, то значение из него помещается в стек
-            value = self.memory[addr]
+            value = self.memory[self.addr_latch]
             self.push_to_stack(value)
 
     """Сохраняет значение из стека в память"""
 
     def save(self, tochar=True):
-        addr = self.pop_from_stack()  # Адрес для сохранения берется из стека
-        val = self.pop_from_stack()  # Значение для сохранения берется из стека
+        self.addr_latch = self.pop_from_stack()  # Адрес для сохранения берется из стека
         if (
-            addr == IOAddresses.OUT_ADDR
+            self.addr_latch == IOAddresses.OUT_ADDR
         ):  # Если это адрес вывода, то значение из стека помещается в output buffer
-            self.write_io(val, tochar)
+            val = self.pop_from_stack()
+            if tochar:
+                val = chr(val)
+            logging.debug(
+                "output: %s << %s", repr("".join(self.output_buffer)), repr(val)
+            )
+            self.output_buffer.append(str(val))
         else:  # Если это просто адрес из памяти, то по этому адресу записывается значение
-            self.memory[addr] = val
+            self.memory[self.addr_latch] = self.pop_from_stack()
 
 
 class ControlUnit:
@@ -125,21 +132,19 @@ class ControlUnit:
         self.init_val = self.data_path.pop_from_stack()
         self.max_val = self.data_path.pop_from_stack()
         self.loop_counter = self.init_val
-        self.tick(3)
+        self.tick(2)
 
     """Проверка условия и остановка цикла"""
 
     def end_loop(self):
-        next_value = self.loop_counter + self.step
+        self.loop_counter += self.step
         self.tick()
-        if next_value < self.max_val:
-            self.loop_counter = next_value
-            self.tick()
+        if self.loop_counter < self.max_val:
             return True
         else:
             self.init_val = 0
             self.max_val = 0
-            self.tick(2)
+            self.tick()
             return False
 
     """Загрузка инструкции в регистр"""
@@ -147,6 +152,7 @@ class ControlUnit:
     def fetch_instruction(self):
         if self.pc < len(self.memory) and self.memory[self.pc] is not None:
             self.instr_latch = self.memory[self.pc]
+            self.tick()
         else:
             raise IndexError("Program counter out of bounds")
 
@@ -157,8 +163,11 @@ class ControlUnit:
         self.decoder.decode(instruction)
         if self.jump_latch == 0:
             self.pc = self.pc + 1
+            self.tick()
             self.instr()
-        self.jump_latch = 0
+        else:
+            self.jump_latch = 0
+            self.tick()
 
     def run(self):
         try:

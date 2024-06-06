@@ -16,8 +16,7 @@ class InstructionDecoder:
         self.control_unit.tick(2)
 
     def execute_dec_i(self, instruction):
-        current_value = self.control_unit.loop_counter
-        self.control_unit.loop_counter = current_value - 1
+        self.control_unit.loop_counter -= 1
         self.control_unit.tick()
 
     def execute_load(self, instruction):
@@ -59,16 +58,17 @@ class InstructionDecoder:
         continue_loop = self.control_unit.end_loop()
         if continue_loop:
             self.control_unit.pc = instruction.get("arg")
+            self.control_unit.tick()
             self.control_unit.instr()
 
     def execute_jz(self, instruction):
         condition = self.control_unit.data_path.pop_from_stack()
         if condition == 0:
-            target = instruction.get("arg")
-            self.control_unit.pc = target
+            self.control_unit.pc = instruction.get("arg")
+            self.control_unit.tick()
             self.control_unit.instr()
             self.control_unit.jump_latch = 1
-            self.control_unit.tick(2)
+            self.control_unit.tick(1)
 
     def execute_push(self, instruction):
         arg = instruction.get("arg")
