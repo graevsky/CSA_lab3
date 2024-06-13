@@ -9,8 +9,8 @@ import pytest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-import source.machine as machine
-import source.translator as translator
+import machine as machine
+import translator as translator
 
 
 def parse_translator_args(args):

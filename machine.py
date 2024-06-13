@@ -4,11 +4,11 @@ import sys
 import logging
 from io import StringIO
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "")))
 
-from source.isa import read_code, IOAddresses
-from source.ALU import ALU
-from source.instruction_decoder import InstructionDecoder
+from isa import read_code, IOAddresses
+from ALU import ALU
+from instruction_decoder import InstructionDecoder
 
 log_stream = StringIO()
 logging.basicConfig(

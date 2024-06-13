@@ -260,7 +260,7 @@ _Особенности_
 - `opcode` - код инструкции
 - `arg` аргумент инструкции, может быть `null`
 
-В модуле [isa.py](source/isa.py):
+В модуле [isa.py](isa.py):
 
 - `Opcode` - перечисление кодов операций
 
@@ -286,7 +286,7 @@ options:
                         Directory to store the output JSON files.
 ```
 
-Реализовано в модуле [translator.py](source/translator.py)
+Реализовано в модуле [translator.py](translator.py)
 
 Принцип работы транслятора:
 
@@ -322,7 +322,7 @@ options:
   -a, --all          Process all JSON files in the machine code directory.
 ```
 
-Реализован в модуле [machine.py](source/machine.py)
+Реализован в модуле [machine.py](machine.py)
 
 Особенности работы симулятора:
 
@@ -332,9 +332,9 @@ options:
 
 ### DataPath
 
-![datapath](info/schemes/datapath.png)
+![datapath](imgs/datapath.png)
 
-Реализован в классе `DataPath` в модуле [machine.py](source/machine.py)
+Реализован в классе `DataPath` в модуле [machine.py](machine.py)
 
 - `Memory` - общая память для инструкций и статических данных
 - `Stack` - стек
@@ -358,9 +358,9 @@ options:
 
 ### ControlUnit
 
-![controlunit](info/schemes/control_unit.png)
+![controlunit](imgs/control_unit.png)
 
-Реализован в классе `ControlUnit` в модуле [machine.py](source/machine.py)
+Реализован в классе `ControlUnit` в модуле [machine.py](machine.py)
 
 - Запись инструкции в регистр в методе `fetch_instruction`
 - Обработка инструкции декодером реализована в методе `execute_instruction`
@@ -406,7 +406,7 @@ options:
 
 - Тесты реализованы при помощи [test_golden.py](tests/test_golden.py)
 - Реализованные программы лежат в [progs](progs)
-- Примеры ввода находятся в [inp](source/inp)
+- Пример ввода находятся в [inp](inp)
 - Конфигурации в [golden](tests/golden) в формате `*.yml`, содержат:
     1. Код программы
     2. Входные данные

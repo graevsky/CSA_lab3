@@ -2,8 +2,8 @@ import argparse
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from source.isa import Opcode, write_code, IOAddresses
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "")))
+from isa import Opcode, write_code, IOAddresses
 
 
 def first_pass(lines):
@@ -369,7 +369,7 @@ def parse_args():
     parser.add_argument(
         "-o",
         "--output_folder",
-        default="./source/machine_code",
+        default="./machine_code",
         help="Directory to store the output JSON files.",
     )
     args = parser.parse_args()
